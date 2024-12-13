@@ -14,5 +14,7 @@ abstract class AppColors {
   static const Color pinCodeColor = Color(0xff86A9C9);
   static const Color bottomNavColor = Color(0xffB5C4D5);
   static const Color shadowColor = Color(0xff143C66);
-  static const Color borderColor = Color(0xff909090);
+  static const Color borderColor = Color(0xffD2D2D2);
+  static const Color chatColor = Color(0xff3369FF);
+
 }

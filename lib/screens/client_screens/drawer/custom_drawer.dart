@@ -1,13 +1,17 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import 'package:makhdom/core/widgets/app_router.dart';
+import 'package:makhdom/core/widgets/flash_message.dart';
+import 'package:makhdom/screens/auth/data/auth_cubit.dart';
 import 'package:makhdom/screens/client_screens/drawer/chat/chat_view.dart';
 import 'package:makhdom/screens/client_screens/drawer/contact_us/contact_us.dart';
 import 'package:makhdom/screens/client_screens/drawer/privacy_policy/privacy_policy.dart';
 import 'package:makhdom/screens/client_screens/home_layout/home_layout.dart';
+import 'package:makhdom/screens/start/type/type.dart';
 import '../../../core/cache/cache_helper.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/widgets/app_text.dart';
@@ -84,7 +88,7 @@ class CustomDrawer extends StatelessWidget {
                         ),
                         SizedBox(height: 20.h),
                         InkWell(
-                          onTap: (){
+                          onTap: () {
                             AppRouter.pop(context);
                             AppRouter.navigateTo(context, const ChatView());
                           },
@@ -252,7 +256,57 @@ class CustomDrawer extends StatelessWidget {
             ),
           ),
           const PositionedPop(),
-          const LogOutContainer()
+          if (CacheHelper.getUserId() != "") ...{
+            BlocConsumer<AuthCubit, AuthState>(
+              listener: (context, state) {
+                if (state is LogOutSuccess) {
+                  AppCubit.get(context).showUserAccount.clear();
+                  AppRouter.pop(context);
+                  AppRouter.pop(context);
+                  AppCubit.get(context).changeScreenIndex(index: 0);
+                  showFlashMessage(
+                    message: state.message,
+                    type: FlashMessageType.success,
+                    context: context,
+                  );
+                  if (CacheHelper.getUserType() == "client") {
+                    AppRouter.navigateAndFinish(context, const HomeLayout());
+                  } else {
+                    AppRouter.navigateAndFinish(context, const TypeScreen());
+                  }
+                  CacheHelper.setUserType("");
+                } else if (state is LogOutFailure) {
+                  AppRouter.pop(context);
+                  showFlashMessage(
+                    message: state.error,
+                    type: FlashMessageType.error,
+                    context: context,
+                  );
+                }
+              },
+              builder: (context, state) {
+                return const LogOutContainer();
+              },
+            ),
+          } else ...{
+            PositionedDirectional(
+              bottom: 50.h,
+              start: 30.w,
+              child: InkWell(
+                onTap: () {
+                  AppRouter.navigateTo(context, const TypeScreen());
+                },
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                child: AppText(
+                  text: LocaleKeys.login.tr(),
+                  color: AppColors.primary,
+                  size: 18.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ),
+          }
         ],
       ),
     );

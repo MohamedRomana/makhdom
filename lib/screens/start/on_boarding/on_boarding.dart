@@ -52,11 +52,12 @@ class _OnBoardingState extends State<OnBoarding> {
                           children: [
                             SizedBox(height: 50.h),
                             AppCachedImage(
-                                image: AppCubit.get(context).introList[index]
-                                    ["image"],
-                                height: 470.h,
-                                width: 317.w,
-                                fit: BoxFit.fill),
+                              image: AppCubit.get(context).introList[index]
+                                  ["image"],
+                              height: 400.h,
+                              width: double.infinity,
+                              fit: BoxFit.fill,
+                            ),
                             SizedBox(
                               width: 311.w,
                               child: AppText(

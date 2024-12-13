@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 
@@ -24,12 +25,13 @@ class OrderDetailsContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           AppText(
-            text: 'رقم الطلب: 23456',
+            text: 'رقم الطلب: ${AppCubit.get(context).showOrderList['id']}',
             size: 16.sp,
             family: 'DINArabic-Medium',
           ),
           AppText(
-            text: 'اسم الخدمة: تنظيف وتعقيم',
+            text:
+                'اسم الخدمة: ${AppCubit.get(context).showOrderList['section_title']}',
             size: 16.sp,
             family: 'DINArabic-Light',
           ),
@@ -50,26 +52,7 @@ class OrderDetailsContainer extends StatelessWidget {
               ),
               const Spacer(),
               AppText(
-                text: 'الخميس 28/10/2024',
-                size: 14.sp,
-                color: Colors.grey,
-              )
-            ],
-          ),
-          Row(
-            children: [
-              Icon(
-                Icons.location_on_outlined,
-                color: AppColors.primary,
-                size: 24.sp,
-              ),
-              AppText(
-                text: 'الموقع',
-                size: 14.sp,
-              ),
-              const Spacer(),
-              AppText(
-                text: 'الرياض',
+                text: AppCubit.get(context).showOrderList['order_date_time'] ?? "",
                 size: 14.sp,
                 color: Colors.grey,
               )
@@ -84,7 +67,7 @@ class OrderDetailsContainer extends StatelessWidget {
               ),
               const Spacer(),
               AppText(
-                text: 'كاش',
+                text: AppCubit.get(context).showOrderList['payment_method_f'] ?? "",
                 size: 14.sp,
                 color: Colors.grey,
               )
@@ -103,7 +86,7 @@ class OrderDetailsContainer extends StatelessWidget {
               ),
               const Spacer(),
               AppText(
-                text: 'محمد احمد',
+                text: AppCubit.get(context).showOrderList['provider_name'] ?? "",
                 size: 14.sp,
                 color: Colors.grey,
               ),

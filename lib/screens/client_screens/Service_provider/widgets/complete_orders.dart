@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 
@@ -33,7 +34,7 @@ class CompleteOrders extends StatelessWidget {
                     color: Colors.black,
                   ),
                   AppText(
-                    text: '+45 طلب',
+                    text: '+${AppCubit.get(context).provider['provider_orders']} طلب',
                     size: 15.sp,
                     color: Colors.grey,
                   ),

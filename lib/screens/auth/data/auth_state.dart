@@ -117,3 +117,12 @@ final class UploadImageSuccess extends AuthState {}
 
 final class UploadImageFailure extends AuthState {}
 
+final class GetSectionsLoading extends AuthState {}
+
+final class GetSectionsSuccess extends AuthState {}
+
+final class GetSectionsFailure extends AuthState {
+  final String error;
+
+  GetSectionsFailure({required this.error});
+}

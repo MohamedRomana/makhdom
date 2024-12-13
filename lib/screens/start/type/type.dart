@@ -27,10 +27,19 @@ class TypeScreen extends StatelessWidget {
                 firstText: LocaleKeys.customer.tr(),
                 secoundText: LocaleKeys.representative.tr(),
                 firstTap: () {
-                  AppRouter.navigateTo(context, const LogIn(type: 'client',));
+                  AppRouter.navigateTo(
+                      context,
+                      const LogIn(
+                        type: 'client',
+                      ));
                 },
                 secoundTap: () {
-                  AppRouter.navigateTo(context, const LogIn(type: 'saler',));
+                  AppRouter.navigateTo(
+                    context,
+                    const LogIn(
+                      type: 'saler',
+                    ),
+                  );
                 },
               ),
               InkWell(

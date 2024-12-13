@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
+import 'package:makhdom/core/widgets/app_cached.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
@@ -14,15 +16,12 @@ class EstateLocationAndPrice extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          height: 150.h,
-          width: 327.w,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(24.r),
-            image: const DecorationImage(
-              image: AssetImage('assets/img/bigestate.png'),
-              fit: BoxFit.cover,
-            ),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(24.r),
+          child: AppCachedImage(
+            image: AppCubit.get(context).showEstateList['first_image'] ?? "",
+            height: 150.h,
+            width: 327.w,
           ),
         ),
         SizedBox(height: 25.h),
@@ -33,7 +32,7 @@ class EstateLocationAndPrice extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 AppText(
-                  text: 'اسم العقار',
+                  text: AppCubit.get(context).showEstateList['title'] ?? "",
                   size: 14.sp,
                   fontWeight: FontWeight.w700,
                 ),
@@ -46,7 +45,8 @@ class EstateLocationAndPrice extends StatelessWidget {
                       size: 14.sp,
                     ),
                     AppText(
-                      text: 'الرياض-حي الصحافة',
+                      text:
+                          AppCubit.get(context).showEstateList['address'] ?? "",
                       size: 12.sp,
                       color: Colors.grey,
                     ),
@@ -56,7 +56,7 @@ class EstateLocationAndPrice extends StatelessWidget {
             ),
             const Spacer(),
             AppText(
-              text: '140,000',
+              text: AppCubit.get(context).showEstateList['price'].toString(),
               size: 16.sp,
               fontWeight: FontWeight.w800,
               color: AppColors.primary,
@@ -78,7 +78,9 @@ class EstateLocationAndPrice extends StatelessWidget {
             ),
             SizedBox(width: 5.h),
             AppText(
-              text: '1',
+              text: AppCubit.get(context)
+                  .showEstateList['area']
+                  .toString(),
               color: Colors.grey,
               size: 20.sp,
             ),
@@ -91,7 +93,9 @@ class EstateLocationAndPrice extends StatelessWidget {
             ),
             SizedBox(width: 5.h),
             AppText(
-              text: '3',
+              text: AppCubit.get(context)
+                  .showEstateList['bathrooms_count']
+                  .toString(),
               color: Colors.grey,
               size: 20.sp,
             ),
@@ -104,7 +108,9 @@ class EstateLocationAndPrice extends StatelessWidget {
             ),
             SizedBox(width: 5.h),
             AppText(
-              text: '4',
+              text: AppCubit.get(context)
+                  .showEstateList['rooms_count']
+                  .toString(),
               color: Colors.grey,
               size: 20.sp,
             ),

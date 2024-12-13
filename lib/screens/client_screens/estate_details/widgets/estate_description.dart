@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
@@ -26,9 +27,7 @@ class EstateDescription extends StatelessWidget {
         SizedBox(
           width: 317.w,
           child: AppText(
-            text:
-                'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات',
-            lines: 3,
+            text: AppCubit.get(context).showEstateList['desc'] ?? "" , lines: 3,
             size: 14.sp,
             color: Colors.grey,
             family: 'DINArabic-Light',

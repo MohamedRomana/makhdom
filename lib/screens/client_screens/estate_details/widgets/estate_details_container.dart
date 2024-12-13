@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 
@@ -41,7 +42,9 @@ class EstateDetailsContainer extends StatelessWidget {
                   ),
                   const Spacer(),
                   AppText(
-                    text: '2500 ر.س',
+                    text: AppCubit.get(context)
+                        .showEstateList['meter_price']
+                        .toString(),
                     size: 14.sp,
                     family: 'DINArabic-Light',
                   ),
@@ -60,7 +63,9 @@ class EstateDetailsContainer extends StatelessWidget {
                   ),
                   const Spacer(),
                   AppText(
-                    text: 'سكني',
+                    text:
+                        AppCubit.get(context).showEstateList['section_title'] ??
+                            "",
                     size: 14.sp,
                     family: 'DINArabic-Light',
                   ),
@@ -79,7 +84,9 @@ class EstateDetailsContainer extends StatelessWidget {
                   ),
                   const Spacer(),
                   AppText(
-                    text: 'الأول',
+                    text: AppCubit.get(context)
+                        .showEstateList['floors_count']
+                        .toString(),
                     size: 14.sp,
                     family: 'DINArabic-Light',
                   ),
@@ -98,7 +105,8 @@ class EstateDetailsContainer extends StatelessWidget {
                   ),
                   const Spacer(),
                   AppText(
-                    text: '2020',
+                    text:
+                        AppCubit.get(context).showEstateList['year'].toString(),
                     size: 14.sp,
                     family: 'DINArabic-Light',
                   ),
@@ -117,7 +125,9 @@ class EstateDetailsContainer extends StatelessWidget {
                   ),
                   const Spacer(),
                   AppText(
-                    text: 'سوبر لوكس',
+                    text:
+                        AppCubit.get(context).showEstateList['finish_title'] ??
+                            "",
                     size: 14.sp,
                     family: 'DINArabic-Light',
                   ),
@@ -136,7 +146,7 @@ class EstateDetailsContainer extends StatelessWidget {
                   ),
                   const Spacer(),
                   AppText(
-                    text: 'الرئيسي',
+                    text: AppCubit.get(context).showEstateList['view_title'] ?? "",
                     size: 14.sp,
                     family: 'DINArabic-Light',
                   ),

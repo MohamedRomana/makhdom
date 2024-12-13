@@ -9,8 +9,10 @@ import 'package:makhdom/core/widgets/app_text.dart';
 import 'package:makhdom/core/widgets/custom_app_bar.dart';
 import 'package:makhdom/core/widgets/custom_bottom_nav.dart';
 import 'package:makhdom/generated/locale_keys.g.dart';
+import '../../../core/cache/cache_helper.dart';
 import '../../../core/constants/colors.dart';
 import '../../../core/widgets/app_router.dart';
+import '../../../core/widgets/login_first.dart';
 import '../drawer/custom_drawer.dart';
 import '../payment/payment.dart';
 import 'widgets/custom_date.dart';
@@ -19,8 +21,21 @@ import 'widgets/provider_container.dart';
 import 'widgets/service_details_container.dart';
 import 'widgets/service_details_text.dart';
 
-class ServiceDetails extends StatelessWidget {
-  const ServiceDetails({super.key});
+class ServiceDetails extends StatefulWidget {
+  final int id;
+  final bool isHaveTime;
+  const ServiceDetails({super.key, required this.id, this.isHaveTime = true});
+
+  @override
+  State<ServiceDetails> createState() => _ServiceDetailsState();
+}
+
+class _ServiceDetailsState extends State<ServiceDetails> {
+  @override
+  void initState() {
+    AppCubit.get(context).getServices(serviceId: widget.id.toString());
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,33 +53,43 @@ class ServiceDetails extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: const CustomBottomNav(),
-          body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: EdgeInsets.all(24.sp),
-              child: Column(
-                children: [
-                  const ServiceContainer(),
-                  const ServiceDetailsText(),
-                  const CustomDate(),
-                  const CustomTime(),
-                  const Divider(thickness: 1, color: Colors.grey),
-                  const ProviderContainer(),
-                  AppButton(
-                    onPressed: () {
-                      AppRouter.navigateTo(context, const Payment());
-                    },
-                    width: 343.w,
-                    child: AppText(
-                      text: LocaleKeys.request_service.tr(),
-                      color: AppColors.secondray,
+          body: CacheHelper.getUserId() == ""
+              ? const LogiFirst()
+              : state is GetServicesLoading
+                  ? const Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.primary,
+                      ),
+                    )
+                  : SingleChildScrollView(
+                      physics: const BouncingScrollPhysics(),
+                      child: Padding(
+                        padding: EdgeInsets.all(24.sp),
+                        child: Column(
+                          children: [
+                            const ServiceContainer(),
+                            const ServiceDetailsText(),
+                            if (widget.isHaveTime) ...{
+                              const CustomDate(),
+                              const CustomTime(),
+                            } else
+                              ...{},
+                            const ProviderContainer(),
+                            AppButton(
+                              onPressed: () {
+                                AppRouter.navigateTo(context, const Payment());
+                              },
+                              width: 343.w,
+                              child: AppText(
+                                text: LocaleKeys.request_service.tr(),
+                                color: AppColors.secondray,
+                              ),
+                            ),
+                            SizedBox(height: 20.h),
+                          ],
+                        ),
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 20.h),
-                ],
-              ),
-            ),
-          ),
         );
       },
     );

@@ -6,11 +6,11 @@ import 'package:makhdom/core/constants/colors.dart';
 import 'package:makhdom/core/widgets/app_router.dart';
 import 'package:makhdom/generated/locale_keys.g.dart';
 import 'package:makhdom/screens/auth/views/user_register/user_register.dart';
-import 'package:makhdom/screens/client_screens/home_layout/home/home.dart';
 import '../../../../core/widgets/app_button.dart';
 import '../../../../core/widgets/app_text.dart';
 import '../../../../core/widgets/flash_message.dart';
 import '../../../../gen/fonts.gen.dart';
+import '../../../client_screens/home_layout/home_layout.dart';
 import '../../data/auth_cubit.dart';
 import '../forget_pass/forget_pass.dart';
 import '../widgets/auth_header.dart';
@@ -55,7 +55,7 @@ class LogIn extends StatelessWidget {
                     //     CacheHelper.getUserType() == "client"
                     //         ? const HomeLayOut()
                     //         : const ProviderOrders());
-                    AppRouter.navigateAndPop(context, const Home());
+                    AppRouter.navigateAndPop(context, const HomeLayout());
                     _phoneController.clear();
                     _passController.clear();
                     showFlashMessage(

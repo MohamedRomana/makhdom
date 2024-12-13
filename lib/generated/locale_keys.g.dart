@@ -172,5 +172,9 @@ abstract class  LocaleKeys {
   static const enter_user_name = 'enter_user_name';
   static const phone_number = 'phone_number';
   static const select_city = 'select_city';
+  static const deleteAccount = 'deleteAccount';
+  static const deleteAccountSubtitle = 'deleteAccountSubtitle';
+  static const yourmessage = 'yourmessage';
+  static const chooseCity = 'chooseCity';
 
 }

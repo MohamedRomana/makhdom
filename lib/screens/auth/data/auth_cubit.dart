@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:http/http.dart' as http;
 import 'package:makhdom/core/cache/cache_helper.dart';
 import '../../../core/constants/contsants.dart';
+import '../../../core/service/models/sections_model.dart';
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -161,6 +162,51 @@ class AuthCubit extends Cubit<AuthState> {
       emit(LogInFailure(error: data["msg"]));
     }
   }
+  List<CitiesModel> citiesList = [];
+  List<SectionsModel> sectionsList = [];
+  List<DepartmentViewModel> departmentViewList = [];
+  List<DepartmenFinishTypesModel> departmenFinishTypesList = [];
+  List<DepartmenSectionsModel> departmenSectionsList = [];
+  Future getSections() async {
+    emit(GetSectionsLoading());
+    http.Response response = await http.post(
+      Uri.parse("${baseUrl}api/sections"),
+      body: {"lang": CacheHelper.getLang()},
+    );
+    Map<String, dynamic> data = jsonDecode(response.body);
+
+    if (data["key"] == 1) {
+      debugPrint(data["data"].toString());
+
+      citiesList = List<CitiesModel>.from(
+        (data["data"]["cities"] ?? []).map((e) => CitiesModel.fromJson(e)),
+      );
+
+      sectionsList = List<SectionsModel>.from(
+        (data["data"]["sections"] ?? []).map((e) => SectionsModel.fromJson(e)),
+      );
+
+      departmentViewList = List<DepartmentViewModel>.from(
+        (data["data"]["view_types"] ?? [])
+            .map((e) => DepartmentViewModel.fromJson(e)),
+      );
+
+      departmenFinishTypesList = List<DepartmenFinishTypesModel>.from(
+        (data["data"]["finish_types"] ?? [])
+            .map((e) => DepartmenFinishTypesModel.fromJson(e)),
+      );
+
+      departmenSectionsList = List<DepartmenSectionsModel>.from(
+        (data["data"]["department_sections"] ?? [])
+            .map((e) => DepartmenSectionsModel.fromJson(e)),
+      );
+
+      emit(GetSectionsSuccess());
+    } else {
+      emit(GetSectionsFailure(error: data["msg"]));
+    }
+  }
+
 
   Future logOut() async {
     emit(LogOutLoading());
@@ -256,6 +302,8 @@ class AuthCubit extends Cubit<AuthState> {
     debugPrint(data.toString());
 
     if (data["key"] == 1) {
+      CacheHelper.setUserId("");
+      CacheHelper.setUserType("");
       emit(DeleteAccountSuccess(message: data["msg"]));
     } else {
       emit(DeleteAccountFailure(error: data["msg"]));

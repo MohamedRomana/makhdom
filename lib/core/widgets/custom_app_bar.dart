@@ -6,12 +6,6 @@ import 'package:makhdom/screens/client_screens/search/search_view.dart';
 import '../constants/colors.dart';
 import 'app_text.dart';
 
-final _formKey = GlobalKey<FormState>();
-final _serviceNameController = TextEditingController();
-final _serviceTypeController = TextEditingController();
-final _cityController = TextEditingController();
-final _serviceRateController = TextEditingController();
-
 class CustomAppBar extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
   final String title;
@@ -62,13 +56,7 @@ class CustomAppBar extends StatelessWidget {
               onPressed: () {
                 AppRouter.navigateTo(
                   context,
-                  SearchView(
-                    formKey: _formKey,
-                    serviceNameController: _serviceNameController,
-                    serviceTypeController: _serviceTypeController,
-                    cityController: _cityController,
-                    serviceRateController: _serviceRateController,
-                  ),
+                  const SearchView(),
                 );
               },
               icon: Icon(
@@ -84,13 +72,7 @@ class CustomAppBar extends StatelessWidget {
                   onPressed: () {
                     AppRouter.navigateTo(
                       context,
-                      SearchView(
-                        formKey: _formKey,
-                        serviceNameController: _serviceNameController,
-                        serviceTypeController: _serviceTypeController,
-                        cityController: _cityController,
-                        serviceRateController: _serviceRateController,
-                      ),
+                      const SearchView(),
                     );
                   },
                   icon: Icon(

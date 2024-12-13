@@ -5,6 +5,7 @@ import 'package:makhdom/core/widgets/app_router.dart';
 import 'package:makhdom/screens/client_screens/Direct_services/direct_services.dart';
 import 'package:makhdom/screens/client_screens/scheduled_services/scheduled_services.dart';
 import '../../../../../core/constants/colors.dart';
+import '../../../../../core/service/cubit/app_cubit.dart';
 import '../../../../../core/widgets/app_text.dart';
 import '../../../../../generated/locale_keys.g.dart';
 
@@ -22,6 +23,7 @@ class ServicesRow extends StatelessWidget {
         children: [
           InkWell(
             onTap: () {
+              AppCubit.get(context).filterServices(isService: true);
               AppRouter.navigateTo(context, const ScheduledServices());
             },
             splashColor: Colors.transparent,
@@ -60,6 +62,7 @@ class ServicesRow extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
+              AppCubit.get(context).filterServices(isService: false);
               AppRouter.navigateTo(context, const DirectServices());
             },
             splashColor: Colors.transparent,

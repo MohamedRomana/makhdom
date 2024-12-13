@@ -14,7 +14,7 @@ void openGoogleMap(double lat, double lng) async {
   }
 }
 
-Future<void> makePhoneCall(String phoneNumber) async{
+Future<void> makePhoneCall(String phoneNumber) async {
   final Uri launchUri = Uri(
     scheme: 'tel',
     path: phoneNumber,

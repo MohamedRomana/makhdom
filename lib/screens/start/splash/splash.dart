@@ -36,11 +36,9 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
     Future.delayed(
       const Duration(seconds: 3),
       () {
-         CacheHelper.getLang() != ""
-            ? CacheHelper.getUserId() != ""
-                ? CacheHelper.getUserType() == "client"
-                    ? AppRouter.navigateAndPop(context, const HomeLayout())
-                    : AppRouter.navigateAndPop(context, const HomeLayout())
+        CacheHelper.getUserId() != ""
+            ? CacheHelper.getUserType() == "client"
+                ? AppRouter.navigateAndPop(context, const HomeLayout())
                 : AppRouter.navigateAndPop(context, const HomeLayout())
             : AppRouter.navigateAndPop(context, const OnBoarding());
       },

@@ -16,15 +16,14 @@ class FloatingLocation extends StatelessWidget {
       onTap: () {
         showModalBottomSheet(
           context: context,
-          backgroundColor: Colors.transparent,
+          backgroundColor: Colors.white,
           useSafeArea: true,
           isScrollControlled: true,
           enableDrag: false,
           useRootNavigator: true,
           elevation: 0,
-          builder: (context) => Container(
+          builder: (context) => SizedBox(
             height: 600.h,
-            margin: EdgeInsets.symmetric(vertical: 24.h, horizontal: 16.w),
             child: const Locationn(),
           ),
         );

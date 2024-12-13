@@ -21,7 +21,7 @@ class CustomBottomNav extends StatelessWidget {
           height: 65.h,
           child: BottomNavigationBar(
             backgroundColor: AppColors.primary,
-            selectedItemColor: AppColors.secondray,
+            selectedItemColor: const Color(0xff787F9E),
             unselectedItemColor: const Color(0xff787F9E),
             currentIndex: AppCubit.get(context).screenIndex,
             showUnselectedLabels: true,
@@ -43,22 +43,23 @@ class CustomBottomNav extends StatelessWidget {
             },
             items: [
               BottomNavigationBarItem(
-                  backgroundColor: AppColors.primary,
-                  icon: SvgPicture.asset(
-                    'assets/svg/home.svg',
-                    height: 20.44.h,
-                    width: 20.44.w,
-                    fit: BoxFit.cover,
-                    color: const Color(0xff787F9E),
-                  ),
-                  activeIcon: SvgPicture.asset(
-                    'assets/svg/home.svg',
-                    height: 20.44.h,
-                    width: 20.44.w,
-                    fit: BoxFit.cover,
-                    color: AppColors.secondray,
-                  ),
-                  label: LocaleKeys.home.tr()),
+                backgroundColor: AppColors.primary,
+                icon: SvgPicture.asset(
+                  'assets/svg/home.svg',
+                  height: 20.44.h,
+                  width: 20.44.w,
+                  fit: BoxFit.cover,
+                  color: const Color(0xff787F9E),
+                ),
+                // activeIcon: SvgPicture.asset(
+                //   'assets/svg/home.svg',
+                //   height: 20.44.h,
+                //   width: 20.44.w,
+                //   fit: BoxFit.cover,
+                //   color: AppColors.secondray,
+                // ),
+                label: LocaleKeys.home.tr(),
+              ),
               BottomNavigationBarItem(
                   backgroundColor: AppColors.primary,
                   icon: SvgPicture.asset(
@@ -68,13 +69,13 @@ class CustomBottomNav extends StatelessWidget {
                     fit: BoxFit.cover,
                     color: const Color(0xff787F9E),
                   ),
-                  activeIcon: SvgPicture.asset(
-                    'assets/svg/orders.svg',
-                    height: 20.44.h,
-                    width: 20.44.w,
-                    fit: BoxFit.cover,
-                    color: AppColors.secondray,
-                  ),
+                  // activeIcon: SvgPicture.asset(
+                  //   'assets/svg/orders.svg',
+                  //   height: 20.44.h,
+                  //   width: 20.44.w,
+                  //   fit: BoxFit.cover,
+                  //   color: AppColors.secondray,
+                  // ),
                   label: LocaleKeys.orders.tr()),
               BottomNavigationBarItem(
                   backgroundColor: AppColors.primary,
@@ -85,13 +86,13 @@ class CustomBottomNav extends StatelessWidget {
                     fit: BoxFit.cover,
                     color: const Color(0xff787F9E),
                   ),
-                  activeIcon: SvgPicture.asset(
-                    'assets/svg/profile.svg',
-                    height: 20.44.h,
-                    width: 20.44.w,
-                    fit: BoxFit.cover,
-                    color: AppColors.secondray,
-                  ),
+                  // activeIcon: SvgPicture.asset(
+                  //   'assets/svg/profile.svg',
+                  //   height: 20.44.h,
+                  //   width: 20.44.w,
+                  //   fit: BoxFit.cover,
+                  //   color: AppColors.secondray,
+                  // ),
                   label: LocaleKeys.profile.tr()),
               BottomNavigationBarItem(
                   backgroundColor: AppColors.primary,
@@ -102,13 +103,13 @@ class CustomBottomNav extends StatelessWidget {
                     fit: BoxFit.cover,
                     color: const Color(0xff787F9E),
                   ),
-                  activeIcon: SvgPicture.asset(
-                    'assets/svg/notifications.svg',
-                    height: 20.44.h,
-                    width: 20.44.w,
-                    fit: BoxFit.cover,
-                    color: AppColors.secondray,
-                  ),
+                  // activeIcon: SvgPicture.asset(
+                  //   'assets/svg/notifications.svg',
+                  //   height: 20.44.h,
+                  //   width: 20.44.w,
+                  //   fit: BoxFit.cover,
+                  //   color: AppColors.secondray,
+                  // ),
                   label: LocaleKeys.notifications.tr()),
             ],
           ),

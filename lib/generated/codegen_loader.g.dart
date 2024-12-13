@@ -185,7 +185,11 @@ class CodegenLoader extends AssetLoader{
   "delete_account": "حذف الحساب",
   "enter_user_name": "أدخل اسم المستخدم",
   "phone_number": "أدخل رقم الجوال",
-  "select_city": "اختر المدينة"
+  "select_city": "اختر المدينة",
+  "deleteAccount": "حذف الحساب",
+  "deleteAccountSubtitle": "هل انت متأكد من حذف الحساب ؟",
+  "yourmessage": "رسالتك",
+  "chooseCity": "اختر المدينة"
 };
 static const Map<String,dynamic> en = {
   "chooseLang": "Choose the appropriate language",
@@ -358,7 +362,11 @@ static const Map<String,dynamic> en = {
   "delete_account": "Delete account",
   "enter_user_name": "Enter user name",
   "phone_number": "أدخل رقم الجوال",
-  "select_city": "اختر المدينة"
+  "select_city": "اختر المدينة",
+  "deleteAccount": "Delete account",
+  "deleteAccountSubtitle": "Are you sure! You want to delete your account?",
+  "yourmessage": "Your message",
+  "chooseCity": "Choose city"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

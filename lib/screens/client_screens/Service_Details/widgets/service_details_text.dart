@@ -1,6 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 import '../../../../generated/locale_keys.g.dart';
@@ -13,7 +14,7 @@ class ServiceDetailsText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(top: 24.h, bottom: 16.h),
+      padding: EdgeInsets.only(top: 24.h, bottom: 10.h),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -25,8 +26,7 @@ class ServiceDetailsText extends StatelessWidget {
           ),
           AppText(
             lines: 3,
-            text:
-                'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات',
+            text: AppCubit.get(context).servicesList['desc'] ?? "",
             color: Colors.grey,
             size: 14.sp,
           ),

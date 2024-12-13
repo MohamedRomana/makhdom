@@ -169,5 +169,9 @@
      "delete_account" : "حذف الحساب",
      "enter_user_name": "أدخل اسم المستخدم",
      "phone_number": "أدخل رقم الجوال",
-     "select_city": "اختر المدينة"
+     "select_city": "اختر المدينة",
+     "deleteAccount" : "حذف الحساب",
+     "deleteAccountSubtitle" : "هل انت متأكد من حذف الحساب ؟",
+     "yourmessage" : "رسالتك",
+     "chooseCity" : "اختر المدينة"
 }

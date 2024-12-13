@@ -31,7 +31,8 @@ class AppText extends StatelessWidget {
     this.bottom,
     this.fontWeight,
     this.textAlign,
-    this.fontStyle, this.decoration,
+    this.fontStyle,
+    this.decoration,
   });
 
   @override
