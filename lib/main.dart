@@ -68,7 +68,7 @@ class _MyAppState extends State<MyApp> {
       builder: (BuildContext context, Widget? child) {
         return MultiBlocProvider(
           providers: [
-            BlocProvider(create: (context) => AppCubit()),
+            BlocProvider(create: (context) => AppCubit()..getSections()),
             BlocProvider(create: (context) => AuthCubit()),
           ],
           child: MaterialApp(

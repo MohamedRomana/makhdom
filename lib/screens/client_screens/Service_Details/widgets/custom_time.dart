@@ -45,16 +45,22 @@ class CustomTime extends StatelessWidget {
                           splashColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           child: Container(
-                            height: 38.h,
                             width: 72.w,
                             decoration: BoxDecoration(
-                              color:
-                                  AppCubit.get(context).chooseTimeIndex == index
-                                      ? AppColors.primary
-                                      : Colors.white,
-                              borderRadius: BorderRadius.circular(8.r),
-                              border: Border.all(color: Colors.grey),
-                            ),
+                                color: AppCubit.get(context).chooseTimeIndex ==
+                                        index
+                                    ? AppColors.primary
+                                    : Colors.white,
+                                borderRadius: BorderRadius.circular(8.r),
+                                border: Border.all(color: Colors.grey),
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: AppColors.primary,
+                                    blurRadius: 5.r,
+                                    spreadRadius: -1.r,
+                                    offset: Offset(0, 5.r),
+                                  )
+                                ]),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

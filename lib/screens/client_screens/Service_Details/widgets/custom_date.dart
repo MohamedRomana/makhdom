@@ -42,7 +42,7 @@ class _CustomDateState extends State<CustomDate> {
                   ),
                   SizedBox(height: 8.w),
                   SizedBox(
-                    height: 50.h,
+                    height: 70.h,
                     child: ListView.separated(
                       separatorBuilder: (context, index) =>
                           SizedBox(width: 8.w),
@@ -56,17 +56,24 @@ class _CustomDateState extends State<CustomDate> {
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
                         child: Container(
-                          height: 48.h,
-                          width: 48.w,
+                          width: 55.w,
                           decoration: BoxDecoration(
-                            color:
-                                AppCubit.get(context).chooseDateIndex == index
-                                    ? AppColors.primary
-                                    : Colors.white,
-                            borderRadius: BorderRadius.circular(8.r),
-                            border: Border.all(color: Colors.grey),
-                          ),
+                              color:
+                                  AppCubit.get(context).chooseDateIndex == index
+                                      ? AppColors.primary
+                                      : Colors.white,
+                              borderRadius: BorderRadius.circular(8.r),
+                              border: Border.all(color: Colors.grey),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: AppColors.primary,
+                                  blurRadius: 5.r,
+                                  spreadRadius: -1.r,
+                                  offset: Offset(0, 5.r),
+                                )
+                              ]),
                           child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               AppText(
                                 text: AppCubit.get(context).dateList[index]

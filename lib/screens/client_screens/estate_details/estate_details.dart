@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/constants/colors.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
+import 'package:makhdom/generated/locale_keys.g.dart';
 import '../../../core/widgets/custom_app_bar.dart';
 import '../../../core/widgets/custom_bottom_nav.dart';
 import '../drawer/custom_drawer.dart';
@@ -40,7 +42,7 @@ class _EstateDetailsState extends State<EstateDetails> {
             preferredSize: Size.fromHeight(100.h),
             child: CustomAppBar(
               scaffoldKey: scaffoldKey,
-              title: 'تفاصيل العقار',
+              title: LocaleKeys.property_details.tr(),
             ),
           ),
           body: state is ShowDepartmentLoading

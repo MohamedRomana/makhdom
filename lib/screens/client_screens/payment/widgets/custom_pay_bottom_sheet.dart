@@ -2,8 +2,10 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/constants/contsants.dart';
+import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import 'package:makhdom/core/widgets/app_router.dart';
 import 'package:makhdom/generated/locale_keys.g.dart';
+import 'package:makhdom/screens/client_screens/drawer/chat/chat_bubble.dart/chat_details.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 
@@ -55,20 +57,33 @@ class CutomPayBottomSheet extends StatelessWidget {
             ),
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 18.w),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  AppText(
-                    text: LocaleKeys.chat.tr(),
-                    size: 17.sp,
-                    color: AppColors.primary,
-                  ),
-                  Icon(
-                    Icons.chat_bubble_outline,
-                    color: AppColors.primary,
-                    size: 20.sp,
-                  )
-                ],
+              child: InkWell(
+                onTap: () {
+                  AppRouter.navigateAndPop(
+                      context,
+                      ChatDetails(
+                          name:
+                              AppCubit.get(context).servicesMap['saler_name'] ??
+                                  "",
+                          id: AppCubit.get(context).servicesMap['saler_id'].toString()));
+                },
+                splashColor: Colors.transparent,
+                highlightColor: Colors.transparent,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    AppText(
+                      text: LocaleKeys.chat.tr(),
+                      size: 17.sp,
+                      color: AppColors.primary,
+                    ),
+                    Icon(
+                      Icons.chat_bubble_outline,
+                      color: AppColors.primary,
+                      size: 20.sp,
+                    )
+                  ],
+                ),
               ),
             ),
           ),

@@ -9,7 +9,7 @@ class HomeModel {
   late final String salerPhone;
   late final String salerFullPhone;
   late final String salerAvatar;
-  late final double salerRate;
+  late final num salerRate;
   late final int salerRateCount;
   late final int cityId;
   late final String cityTitle;

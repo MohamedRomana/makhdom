@@ -55,13 +55,12 @@ class SearchResult extends StatelessWidget {
                       return InkWell(
                         onTap: () {
                           AppRouter.navigateTo(
-                              context,
-                              ServiceDetails(
-                                id: AppCubit.get(context)
-                                    .searchResult[index]
-                                    .id,
-                                isHaveTime: true,
-                              ));
+                            context,
+                            ServiceDetails(
+                              id: AppCubit.get(context).searchResult[index].id,
+                              isHaveTime: true,
+                            ),
+                          );
                         },
                         splashColor: Colors.transparent,
                         highlightColor: Colors.transparent,
@@ -73,10 +72,15 @@ class SearchResult extends StatelessWidget {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              AppCachedImage(
-                                image: AppCubit.get(context)
-                                    .searchResult[index]
-                                    .firstImage,
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.r),
+                                child: AppCachedImage(
+                                  image: AppCubit.get(context)
+                                      .searchResult[index]
+                                      .firstImage,
+                                      height: 48.h,
+                                      width: 48.w,
+                                ),
                               ),
                               Padding(
                                 padding: EdgeInsets.symmetric(horizontal: 16.w),

@@ -48,7 +48,8 @@ class _HomeState extends State<Home> {
               ? const CustomHomeShimmer()
               : SingleChildScrollView(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.w),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
                     child: const Column(
                       children: [
                         SwiperContainer(),

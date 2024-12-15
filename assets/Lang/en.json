@@ -173,5 +173,16 @@
      "deleteAccount" : "Delete account",
     "deleteAccountSubtitle" : "Are you sure! You want to delete your account?",
     "yourmessage" : "Your message",
-    "chooseCity" : "Choose city"
+    "chooseCity" : "Choose city",
+    "property_details": "Property Details",
+    "price_per_meter": "Price per Meter",
+    "floor": "Floor",
+    "year_built": "Year Built",
+    "finishing_type": "Finishing Type",
+    "view": "View",
+    "property_description": "Property Description",
+    "property_location": "Property Location",
+    "contact": "Contact",
+    "are_you_sure_to_logout": "Are you sure you want to log out?",
+    "show" : "Show"
 }

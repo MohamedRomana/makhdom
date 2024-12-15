@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:collection';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -7,6 +8,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
+import '../../../../generated/locale_keys.g.dart';
 
 class EstateLocation extends StatefulWidget {
   const EstateLocation({super.key});
@@ -29,7 +31,7 @@ class _EstateLocationState extends State<EstateLocation> {
             Align(
               alignment: AlignmentDirectional.centerStart,
               child: AppText(
-                text: 'مكان العقار',
+                text: LocaleKeys.property_location.tr(),
                 size: 18.sp,
                 color: AppColors.text,
                 family: 'DINArabic-Medium',

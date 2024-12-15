@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
+import 'package:makhdom/core/widgets/alert_dialog.dart';
 import 'package:makhdom/core/widgets/app_router.dart';
 import 'package:makhdom/core/widgets/flash_message.dart';
 import 'package:makhdom/screens/auth/data/auth_cubit.dart';
@@ -259,6 +260,9 @@ class CustomDrawer extends StatelessWidget {
           if (CacheHelper.getUserId() != "") ...{
             BlocConsumer<AuthCubit, AuthState>(
               listener: (context, state) {
+                if (state is LogOutLoading) {
+                  showLoadingDialog(context: context, isLottie: true);
+                }
                 if (state is LogOutSuccess) {
                   AppCubit.get(context).showUserAccount.clear();
                   AppRouter.pop(context);

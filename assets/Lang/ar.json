@@ -173,5 +173,17 @@
      "deleteAccount" : "حذف الحساب",
      "deleteAccountSubtitle" : "هل انت متأكد من حذف الحساب ؟",
      "yourmessage" : "رسالتك",
-     "chooseCity" : "اختر المدينة"
+     "chooseCity" : "اختر المدينة",
+     "property_details": "تفاصيل العقار",
+     "price_per_meter": "سعر المتر",
+     "floor": "الطابق",
+     "year_built": "سنة البناء",
+     "finishing_type": "نوع التشطيب",
+     "view": "تطل على",
+     "property_description": "وصف العقار",
+     "property_location": "مكان العقار",
+     "contact": "اتصال",
+     "are_you_sure_to_logout": "هل أنت متأكد من تسجيل الخروج؟",
+     "show" : "عرض"
+ 
 }

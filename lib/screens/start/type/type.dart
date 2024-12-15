@@ -7,6 +7,7 @@ import 'package:makhdom/core/widgets/app_text.dart';
 import 'package:makhdom/screens/auth/views/login/login.dart';
 import '../../../generated/locale_keys.g.dart';
 import '../../auth/views/widgets/auth_header.dart';
+import '../../client_screens/home_layout/home_layout.dart';
 import '../widgets/choose_container.dart';
 
 class TypeScreen extends StatelessWidget {
@@ -43,7 +44,9 @@ class TypeScreen extends StatelessWidget {
                 },
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  AppRouter.navigateTo(context, const HomeLayout());
+                },
                 splashColor: Colors.transparent,
                 highlightColor: Colors.transparent,
                 child: AppText(

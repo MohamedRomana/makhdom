@@ -40,96 +40,96 @@ class ScheduledServices extends StatelessWidget {
                   child: CircularProgressIndicator(
                   color: AppColors.primary,
                 ))
-              : Padding(
-                  padding:
-                      EdgeInsets.symmetric(horizontal: 16.w, vertical: 24.h),
-                  child: ListView.separated(
-                    physics: const BouncingScrollPhysics(),
-                    separatorBuilder: (context, index) =>
-                        SizedBox(height: 16.h),
-                    itemCount: AppCubit.get(context).services.length,
-                    itemBuilder: (context, index) {
-                      return InkWell(
-                        onTap: () {
-                          AppRouter.navigateTo(
-                              context,
-                              ServiceDetails(
-                                id: AppCubit.get(context).services[index]['id'],
-                                isHaveTime: true,
-                              ));
-                        },
-                        splashColor: Colors.transparent,
-                        highlightColor: Colors.transparent,
-                        child: Container(
-                          height: 80.h,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.r),
-                              border: Border.all(color: Colors.grey)),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              ClipRRect(
-                                  borderRadius: BorderRadius.circular(8.r),
-                                  child: AppCachedImage(
-                                    image: AppCubit.get(context).services[index]
-                                        ["first_image"],
-                                    height: 48.h,
-                                    width: 48.w,
-                                  )),
-                              Padding(
-                                padding: EdgeInsets.symmetric(horizontal: 16.w),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+              : ListView.separated(
+                padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 16.h),
+                physics: const BouncingScrollPhysics(),
+                separatorBuilder: (context, index) =>
+                    SizedBox(height: 16.h),
+                itemCount: AppCubit.get(context).services.length,
+                itemBuilder: (context, index) {
+                  return InkWell(
+                    onTap: () {
+                      AppRouter.navigateTo(
+                          context,
+                          ServiceDetails(
+                            id: AppCubit.get(context).services[index]['id'],
+                            isHaveTime: true,
+                          ));
+                    },
+                    splashColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 8.w),
+                      height: 80.h,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16.r),
+                          border: Border.all(color: Colors.grey)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          ClipRRect(
+                              borderRadius: BorderRadius.circular(8.r),
+                              child: AppCachedImage(
+                                image: AppCubit.get(context).services[index]
+                                    ["first_image"],
+                                height: 48.h,
+                                width: 48.w,
+                              )),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 8.w),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                AppText(
+                                  text: AppCubit.get(context)
+                                      .services[index]['title'],
+                                  size: 14.sp,
+                                  color: AppColors.text,
+                                ),
+                                SizedBox(height: 8.h),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                   children: [
+                                    SvgPicture.asset('assets/svg/bag.svg'),
+                                    SizedBox(width: 4.w),
                                     AppText(
                                       text: AppCubit.get(context)
-                                          .services[index]['title'],
-                                      size: 14.sp,
+                                          .services[index]['section_title'],
+                                      size: 12.sp,
+                                      color: Colors.grey,
+                                    ),
+                                    SizedBox(width: 100.w),
+                                    AppText(
+                                      text: '${LocaleKeys.price.tr()}: ',
+                                      size: 12.sp,
                                       color: AppColors.text,
                                     ),
-                                    SizedBox(height: 8.h),
-                                    Row(
-                                      children: [
-                                        SvgPicture.asset('assets/svg/bag.svg'),
-                                        SizedBox(width: 4.w),
-                                        AppText(
-                                          text: AppCubit.get(context)
-                                              .services[index]['section_title'],
-                                          size: 12.sp,
-                                          color: Colors.grey,
-                                        ),
-                                        SizedBox(width: 100.w),
-                                        AppText(
-                                          text: '${LocaleKeys.price.tr()}: ',
-                                          size: 12.sp,
-                                          color: AppColors.text,
-                                        ),
-                                        AppText(
-                                          text: AppCubit.get(context)
-                                              .services[index]['price']
-                                              .toString(),
-                                          size: 14.sp,
-                                          fontWeight: FontWeight.bold,
-                                          color: const Color(0xff5669FF),
-                                        ),
-                                        AppText(
-                                          text: ' ${LocaleKeys.currency.tr()}',
-                                          size: 12.sp,
-                                          color: AppColors.text,
-                                        ),
-                                      ],
+                                    AppText(
+                                      text: AppCubit.get(context)
+                                          .services[index]['price']
+                                          .toString(),
+                                      size: 14.sp,
+                                      fontWeight: FontWeight.bold,
+                                      color: const Color(0xff5669FF),
+                                    ),
+                                    AppText(
+                                      lines: 1,
+                                      text: ' ${LocaleKeys.currency.tr()}',
+                                      size: 12.sp,
+                                      color: AppColors.text,
                                     ),
                                   ],
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
-                        ),
-                      );
-                    },
-                  ),
-                ),
+                        ],
+                      ),
+                    ),
+                  );
+                },
+              ),
         );
       },
     );

@@ -47,7 +47,7 @@ class _CustomUserRegisterFieldsState extends State<CustomUserRegisterFields> {
             filled: true,
             hint: LocaleKeys.username.tr(),
             controller: widget.nameController,
-            inputType: TextInputType.phone,
+     
             validate: (value) {
               if (value!.isEmpty) {
                 return LocaleKeys.usernameValidate.tr();

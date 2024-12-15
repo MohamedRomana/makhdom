@@ -11,7 +11,7 @@ import 'widgets/chat_item_shimmer.dart';
 import 'widgets/floating_send_message.dart';
 
 class ChatDetails extends StatefulWidget {
-  final int id;
+  final String id;
   final String name;
   const ChatDetails({
     super.key,

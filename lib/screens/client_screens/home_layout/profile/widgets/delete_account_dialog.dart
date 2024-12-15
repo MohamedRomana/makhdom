@@ -41,7 +41,6 @@ class DeleteAccountDialog extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                AppRouter.pop(context);
                 AuthCubit.get(context).deleteAccount();
               },
               child: AppText(

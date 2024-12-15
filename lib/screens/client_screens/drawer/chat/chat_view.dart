@@ -51,7 +51,7 @@ class _ChatViewState extends State<ChatView> {
                   onTap: () => AppRouter.navigateTo(
                       context,
                       ChatDetails(
-                        id: AppCubit.get(context).rooms[index].salerId,
+                        id: AppCubit.get(context).rooms[index].salerId.toString(),
                         name: AppCubit.get(context).rooms[index].salerName,
                       )),
                   splashColor: Colors.transparent,

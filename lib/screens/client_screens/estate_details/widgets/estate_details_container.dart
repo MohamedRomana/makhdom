@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
+import 'package:makhdom/generated/locale_keys.g.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 
@@ -16,7 +18,7 @@ class EstateDetailsContainer extends StatelessWidget {
         Align(
           alignment: AlignmentDirectional.centerStart,
           child: AppText(
-            text: 'تفاصيل العقار',
+            text: LocaleKeys.property_details.tr(),
             size: 18.sp,
             color: AppColors.text,
           ),
@@ -36,7 +38,7 @@ class EstateDetailsContainer extends StatelessWidget {
               Row(
                 children: [
                   AppText(
-                    text: 'سعر المتر:',
+                    text: '${LocaleKeys.price_per_meter.tr()}:',
                     size: 14.sp,
                     family: 'DINArabic-Medium',
                   ),
@@ -57,7 +59,7 @@ class EstateDetailsContainer extends StatelessWidget {
               Row(
                 children: [
                   AppText(
-                    text: 'النوع:',
+                    text: '${LocaleKeys.type.tr()}:',
                     size: 14.sp,
                     family: 'DINArabic-Medium',
                   ),
@@ -78,7 +80,7 @@ class EstateDetailsContainer extends StatelessWidget {
               Row(
                 children: [
                   AppText(
-                    text: 'الطابق:',
+                    text: '${LocaleKeys.floor.tr()}:',
                     size: 14.sp,
                     family: 'DINArabic-Medium',
                   ),
@@ -99,7 +101,7 @@ class EstateDetailsContainer extends StatelessWidget {
               Row(
                 children: [
                   AppText(
-                    text: 'سنة البناء:',
+                    text: '${LocaleKeys.year_built.tr()}:',
                     size: 14.sp,
                     family: 'DINArabic-Medium',
                   ),
@@ -119,7 +121,7 @@ class EstateDetailsContainer extends StatelessWidget {
               Row(
                 children: [
                   AppText(
-                    text: 'نوع التشطيب:',
+                    text: '${LocaleKeys.finishing_type.tr()}:',
                     size: 14.sp,
                     family: 'DINArabic-Medium',
                   ),
@@ -140,7 +142,7 @@ class EstateDetailsContainer extends StatelessWidget {
               Row(
                 children: [
                   AppText(
-                    text: 'تطل على:',
+                    text: '${LocaleKeys.view.tr()}:',
                     size: 14.sp,
                     family: 'DINArabic-Medium',
                   ),

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
+import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_bottom_nav.dart';
@@ -39,21 +40,25 @@ class _PrivacyPolicyState extends State<PrivacyPolicy> {
               title: LocaleKeys.privacyPolicy.tr(),
             ),
           ),
-          body: SingleChildScrollView(
-            physics: const BouncingScrollPhysics(),
-            child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
-              child: Column(
-                children: [
-                  AppText(
-                    text: AppCubit.get(context).privacyPolicyTitle,
-                    lines: 100,
-                    size: 16.sp,
-                  )
-                ],
-              ),
-            ),
-          ),
+          body: state is PrivacyPolicyLoading
+              ? const Center(
+                  child: CircularProgressIndicator(color: AppColors.primary))
+              : SingleChildScrollView(
+                  physics: const BouncingScrollPhysics(),
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
+                    child: Column(
+                      children: [
+                        AppText(
+                          text: AppCubit.get(context).privacyPolicyTitle,
+                          lines: 100,
+                          size: 16.sp,
+                        )
+                      ],
+                    ),
+                  ),
+                ),
         );
       },
     );

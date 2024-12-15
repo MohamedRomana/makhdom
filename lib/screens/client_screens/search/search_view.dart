@@ -67,7 +67,7 @@ class _SearchViewState extends State<SearchView> {
                     AppCubit.get(context).getSearch(
                       title: _serviceNameController.text,
                       filter: _serviceRateController.text ==
-                              LocaleKeys.sort_by_highest_rating
+                              LocaleKeys.sort_by_highest_rating.tr()
                           ? "max_rate"
                           : _serviceRateController.text ==
                                   LocaleKeys.sort_by_lowest_price.tr()

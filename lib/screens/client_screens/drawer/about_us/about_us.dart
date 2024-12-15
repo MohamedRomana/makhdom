@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import 'package:makhdom/core/widgets/app_text.dart';
+import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/custom_app_bar.dart';
 import '../../../../core/widgets/custom_bottom_nav.dart';
 import '../../../../generated/locale_keys.g.dart';
@@ -39,30 +40,35 @@ class _AboutUsState extends State<AboutUs> {
               title: LocaleKeys.aboutus.tr(),
             ),
           ),
-          body: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
-            child: Column(
-              children: [
-                Container(
-                  height: 100.h,
-                  width: 100.w,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16.r),
-                    image: const DecorationImage(
-                      image: AssetImage('assets/img/logo.png'),
-                      fit: BoxFit.cover,
-                    ),
+          body: state is AboutUsLoading
+              ? const Center(
+                  child: CircularProgressIndicator(color: AppColors.primary),
+                )
+              : Padding(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 30.w, vertical: 40.h),
+                  child: Column(
+                    children: [
+                      Container(
+                        height: 100.h,
+                        width: 100.w,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16.r),
+                          image: const DecorationImage(
+                            image: AssetImage('assets/img/logo.png'),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 35.h),
+                      AppText(
+                        text: AppCubit.get(context).aboutUsTitle,
+                        lines: 100,
+                        size: 16.sp,
+                      )
+                    ],
                   ),
                 ),
-                SizedBox(height: 35.h),
-                AppText(
-                  text: AppCubit.get(context).aboutUsTitle,
-                  lines: 100,
-                  size: 16.sp,
-                )
-              ],
-            ),
-          ),
         );
       },
     );

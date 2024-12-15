@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:makhdom/generated/locale_keys.g.dart';
 import '../../../../core/constants/colors.dart';
 import '../../../../core/location/location.dart';
 import '../../../../core/widgets/app_text.dart';
@@ -43,7 +45,7 @@ class FloatingEstateLocation extends StatelessWidget {
             SvgPicture.asset('assets/svg/Map.svg'),
             SizedBox(width: 7.w),
             AppText(
-              text: 'عرض',
+              text: LocaleKeys.show.tr(),
               color: AppColors.primary,
               size: 12.sp,
               family: 'DINArabic-Medium',

@@ -109,6 +109,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   List services = [];
+  Map servicesMap = {};
 
   Future filterServices({bool isService = false, String filter = ""}) async {
     emit(GetServicesLoading());
@@ -121,10 +122,11 @@ class AppCubit extends Cubit<AppState> {
     });
     Map<String, dynamic> data = jsonDecode(response.body);
     debugPrint(data.toString());
-
-    services = data["data"] ?? [];
+    services = data["data"];
 
     if (data['key'] == 1) {
+      services = data["data"];
+      servicesMap = data;
       emit(GetServicesSuccess(message: data["msg"]));
     } else {
       emit(GetServicesFailure(error: data["msg"]));
@@ -156,6 +158,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   Map provider = {};
+
   Future showProvider({required String providerId}) async {
     emit(ShowProviderLoading());
     http.Response response =
@@ -168,6 +171,7 @@ class AppCubit extends Cubit<AppState> {
 
     if (data['key'] == 1) {
       provider = data['data'];
+
       emit(ShowProviderSuccess());
     } else {
       emit(ShowProviderFailure(error: data["msg"]));
@@ -175,7 +179,7 @@ class AppCubit extends Cubit<AppState> {
   }
 
   List estatesList = [];
-  late List<AllDepartmentModel> allDepartmentModel;
+  late List<AllDepartmentModel> allDepartmentModel = [];
   Future getDepartments() async {
     emit(GetDepartmentLoading());
     http.Response response = await http
@@ -552,7 +556,7 @@ class AppCubit extends Cubit<AppState> {
 
   String privacyPolicyTitle = '';
   Future privacyPolicy() async {
-    emit(AboutUsLoading());
+    emit(PrivacyPolicyLoading());
     http.Response response =
         await http.post(Uri.parse("${baseUrl}api/page"), body: {
       "lang": CacheHelper.getLang(),
@@ -564,9 +568,9 @@ class AppCubit extends Cubit<AppState> {
     debugPrint(data.toString());
 
     if (data["key"] == 1) {
-      emit(AboutUsSuccess());
+      emit(PrivacyPolicySuccess());
     } else {
-      emit(AboutUsFailure(error: data["msg"]));
+      emit(PrivacyPolicyFailure(error: data["msg"]));
     }
   }
 
@@ -613,6 +617,8 @@ class AppCubit extends Cubit<AppState> {
         (data['data'] ?? []).map((e) => HomeModel.fromJson(e)),
       );
       emit(GetSearchSuccess(message: data['msg']));
+      cityId = "";
+      sectionId = "";
     } else {
       emit(GetSearchFailure(error: data['msg']));
     }

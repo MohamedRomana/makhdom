@@ -194,8 +194,8 @@ class _EstateViewState extends State<EstateView> {
                           Align(
                             alignment: AlignmentDirectional.topStart,
                             child: AppText(
-                              text: ' ر.س',
-                              size: 14.sp,
+                              text: ' ${LocaleKeys.sar.tr()}',
+                              size: 12.sp,
                               fontWeight: FontWeight.w400,
                               color: AppColors.text,
                             ),

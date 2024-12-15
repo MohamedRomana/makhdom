@@ -41,8 +41,7 @@ class _LocationState extends State<Locationn> {
   }) async {
     Uint8List markerImage =
         await screenshotController.captureFromWidget(Container(
-        padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
-
+      padding: EdgeInsets.symmetric(horizontal: 2.w, vertical: 2.h),
       height: 30.h,
       width: 80.w,
       decoration: BoxDecoration(
@@ -55,7 +54,9 @@ class _LocationState extends State<Locationn> {
             height: 20.w,
             width: 20.w,
             clipBehavior: Clip.antiAlias,
-            margin: EdgeInsetsDirectional.only(end: 3.w, ),
+            margin: EdgeInsetsDirectional.only(
+              end: 3.w,
+            ),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(5.r),

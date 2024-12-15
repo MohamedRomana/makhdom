@@ -101,7 +101,7 @@ class _NotificationsState extends State<Notifications> {
                               splashColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               child: Container(
-                                padding: EdgeInsets.all(10.sp),
+                                padding: EdgeInsets.all(8.sp),
                                 width: 343.w,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(10.r),

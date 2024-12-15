@@ -259,3 +259,12 @@ final class SendMessageFailure extends AppState {
   final String error;
   SendMessageFailure({required this.error});
 }
+
+final class PrivacyPolicyLoading extends AppState {}
+
+final class PrivacyPolicySuccess extends AppState {}
+
+final class PrivacyPolicyFailure extends AppState {
+  final String error;
+  PrivacyPolicyFailure({required this.error});
+}

@@ -15,27 +15,24 @@ class SwiperContainer extends StatelessWidget {
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
         return Center(
-          child: Padding(
-            padding: EdgeInsets.only(top: 24.h),
-            child: SizedBox(
-              height: 150.h,
-              child: Swiper(
-                itemBuilder: (context, index) => ClipRRect(
-                    borderRadius: BorderRadius.circular(15.r),
-                    child: AppCachedImage(
-                        image: AppCubit.get(context).sliders[index]["image"])),
-                autoplay: true,
-                itemCount: AppCubit.get(context).sliders.length,
-                scrollDirection: Axis.horizontal,
-                curve: Curves.fastOutSlowIn,
-                pagination: SwiperPagination(
-                  alignment: Alignment.bottomCenter,
-                  builder: DotSwiperPaginationBuilder(
-                    color: const Color.fromARGB(153, 158, 158, 158),
-                    activeColor: Colors.black,
-                    size: 8.r,
-                    activeSize: 11.r,
-                  ),
+          child: SizedBox(
+            height: 150.h,
+            child: Swiper(
+              itemBuilder: (context, index) => ClipRRect(
+                  borderRadius: BorderRadius.circular(15.r),
+                  child: AppCachedImage(
+                      image: AppCubit.get(context).sliders[index]["image"])),
+              autoplay: true,
+              itemCount: AppCubit.get(context).sliders.length,
+              scrollDirection: Axis.horizontal,
+              curve: Curves.fastOutSlowIn,
+              pagination: SwiperPagination(
+                alignment: Alignment.bottomCenter,
+                builder: DotSwiperPaginationBuilder(
+                  color: const Color.fromARGB(153, 158, 158, 158),
+                  activeColor: Colors.black,
+                  size: 8.r,
+                  activeSize: 11.r,
                 ),
               ),
             ),

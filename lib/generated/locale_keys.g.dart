@@ -176,5 +176,16 @@ abstract class  LocaleKeys {
   static const deleteAccountSubtitle = 'deleteAccountSubtitle';
   static const yourmessage = 'yourmessage';
   static const chooseCity = 'chooseCity';
+  static const property_details = 'property_details';
+  static const price_per_meter = 'price_per_meter';
+  static const floor = 'floor';
+  static const year_built = 'year_built';
+  static const finishing_type = 'finishing_type';
+  static const view = 'view';
+  static const property_description = 'property_description';
+  static const property_location = 'property_location';
+  static const contact = 'contact';
+  static const are_you_sure_to_logout = 'are_you_sure_to_logout';
+  static const show = 'show';
 
 }

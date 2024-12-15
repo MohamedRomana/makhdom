@@ -23,7 +23,7 @@ class LogOutContainer extends StatelessWidget {
             dialogType: DialogType.warning,
             animType: AnimType.rightSlide,
             title: LocaleKeys.logout.tr(),
-            desc: 'هل أنت متأكد من تسجيل الخروج ؟',
+            desc:LocaleKeys.are_you_sure_to_logout.tr(),
             btnCancelOnPress: () {},
             btnOkOnPress: () {
               AuthCubit.get(context).logOut();
@@ -56,7 +56,7 @@ class LogOutContainer extends StatelessWidget {
                   ),
                   AppText(
                     start: 8.w,
-                    text: 'تسجيل خروج',
+                    text: LocaleKeys.logout.tr(),
                     size: 17.sp,
                     color: const Color(0xffFE5050),
                   ),

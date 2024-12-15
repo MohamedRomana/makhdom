@@ -189,7 +189,18 @@ class CodegenLoader extends AssetLoader{
   "deleteAccount": "حذف الحساب",
   "deleteAccountSubtitle": "هل انت متأكد من حذف الحساب ؟",
   "yourmessage": "رسالتك",
-  "chooseCity": "اختر المدينة"
+  "chooseCity": "اختر المدينة",
+  "property_details": "تفاصيل العقار",
+  "price_per_meter": "سعر المتر",
+  "floor": "الطابق",
+  "year_built": "سنة البناء",
+  "finishing_type": "نوع التشطيب",
+  "view": "تطل على",
+  "property_description": "وصف العقار",
+  "property_location": "مكان العقار",
+  "contact": "اتصال",
+  "are_you_sure_to_logout": "هل أنت متأكد من تسجيل الخروج؟",
+  "show": "عرض"
 };
 static const Map<String,dynamic> en = {
   "chooseLang": "Choose the appropriate language",
@@ -366,7 +377,18 @@ static const Map<String,dynamic> en = {
   "deleteAccount": "Delete account",
   "deleteAccountSubtitle": "Are you sure! You want to delete your account?",
   "yourmessage": "Your message",
-  "chooseCity": "Choose city"
+  "chooseCity": "Choose city",
+  "property_details": "Property Details",
+  "price_per_meter": "Price per Meter",
+  "floor": "Floor",
+  "year_built": "Year Built",
+  "finishing_type": "Finishing Type",
+  "view": "View",
+  "property_description": "Property Description",
+  "property_location": "Property Location",
+  "contact": "Contact",
+  "are_you_sure_to_logout": "Are you sure you want to log out?",
+  "show": "Show"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

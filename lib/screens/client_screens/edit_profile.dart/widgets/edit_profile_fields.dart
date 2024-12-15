@@ -5,6 +5,7 @@ import '../../../../core/constants/colors.dart';
 import '../../../../core/service/cubit/app_cubit.dart';
 import '../../../../core/widgets/app_input.dart';
 import '../../../../core/widgets/app_text.dart';
+import '../../../../gen/fonts.gen.dart';
 import '../../../../generated/locale_keys.g.dart';
 
 class EditProfileFields extends StatefulWidget {
@@ -34,8 +35,6 @@ class _EditProfileFieldsState extends State<EditProfileFields> {
 
   @override
   Widget build(BuildContext context) {
-    List<String> city = ['test1', 'test2', 'test3'];
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -85,24 +84,45 @@ class _EditProfileFieldsState extends State<EditProfileFields> {
           controller: widget.cityController,
           focusedBorderColor: Colors.grey,
           hint: AppCubit.get(context).showUserAccount['city'] ?? "",
-          suffixIcon: Padding(
-            padding: EdgeInsetsDirectional.only(end: 16.w),
-            child: DropdownButtonHideUnderline(
-              child: DropdownButton<String>(
-                items: city.map<DropdownMenuItem<String>>((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Text(value),
-                  );
-                }).toList(),
-                onChanged: (value) {
-                  setState(() {
-                    widget.cityController.text = value!;
-                  });
-                },
-              ),
-            ),
+          suffixIcon: Icon(
+            Icons.arrow_drop_down,
+            color: Colors.grey,
+            size: 25.sp,
           ),
+          read: true,
+          onTap: () async {
+            String? value = await showDialog<String>(
+              context: context,
+              builder: (context) {
+                return SimpleDialog(
+                  backgroundColor: AppColors.secondray,
+                  title: AppText(
+                    text: LocaleKeys.chooseCity.tr(),
+                    color: AppColors.primary,
+                    size: 21.sp,
+                    family: FontFamily.dINArabicBold,
+                  ),
+                  children: AppCubit.get(context).citiesList.map((value) {
+                    return SimpleDialogOption(
+                      onPressed: () {
+                        AppCubit.get(context).cityId = value.id.toString();
+                        Navigator.pop(context, value.title);
+                      },
+                      child: AppText(
+                        text: value.title,
+                        color: AppColors.text,
+                        size: 18.sp,
+                        family: FontFamily.dINArabicBold,
+                      ),
+                    );
+                  }).toList(),
+                );
+              },
+            );
+            if (value != null) {
+              widget.cityController.text = value;
+            }
+          },
         ),
       ],
     );

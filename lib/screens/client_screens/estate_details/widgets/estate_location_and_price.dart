@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:makhdom/core/service/cubit/app_cubit.dart';
 import 'package:makhdom/core/widgets/app_cached.dart';
+import 'package:makhdom/generated/locale_keys.g.dart';
 
 import '../../../../core/constants/colors.dart';
 import '../../../../core/widgets/app_text.dart';
@@ -62,7 +64,7 @@ class EstateLocationAndPrice extends StatelessWidget {
               color: AppColors.primary,
             ),
             AppText(
-              text: 'ر.س',
+              text: " ${LocaleKeys.sar.tr()}",
               size: 14.sp,
               fontWeight: FontWeight.w400,
               color: AppColors.text,
@@ -78,9 +80,7 @@ class EstateLocationAndPrice extends StatelessWidget {
             ),
             SizedBox(width: 5.h),
             AppText(
-              text: AppCubit.get(context)
-                  .showEstateList['area']
-                  .toString(),
+              text: AppCubit.get(context).showEstateList['area'].toString(),
               color: Colors.grey,
               size: 20.sp,
             ),
